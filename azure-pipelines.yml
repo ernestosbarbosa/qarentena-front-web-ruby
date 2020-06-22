@@ -1,10 +1,22 @@
-
 trigger:
-- qarentena-azure-pipelines
+  - qarentena-azure-pipelines
 
 pool:
   vmImage: 'ubuntu-latest'
 
+container: ernestosbarbosa/ruby-chromedriver:latest
+
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+  - task: Bash@3
+    inputs:
+      targetType: 'inline'
+      script: |
+        sudo bundle install
+        sudo bundle exec cucumber
+
+  - task: PublishCucumberReport@1
+    inputs:
+      jsonDir: '$(System.DefaultWorkingDirectory)'
+      outputPath: '$(Sytem.DefaultWorkingDirectory)'
+      theme: 'bootstrap'
+      reportSuiteAsScenarios: true
