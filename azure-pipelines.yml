@@ -1,24 +1,20 @@
-resources:
-  containers:
-  - container: qarentena
-    image: ernestosbarbosa/ruby-chromedriver:latest
-    options: --user 0:0
-
 trigger:
   - qarentena-azure-pipelines
 
 pool:
-  vmImage: 'ubuntu-latest'
-
-container: qarentena
+  vmImage: 'windows-latest'
 
 steps:
+  - task: UseRubyVersion@0
+    inputs:
+      versionSpec: '>= 2.6'
   - task: Bash@3
     inputs:
       targetType: 'inline'
       script: |
-        sudo bundle install
-        sudo bundle exec cucumber
+        gem install bundler
+        bundle install
+        bundle exec cucumber
 
   - task: PublishCucumberReport@1
     inputs:
