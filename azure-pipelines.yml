@@ -17,7 +17,7 @@ steps:
         bundle exec cucumber -p json
   - task: PublishCucumberReport@1
     inputs:
-      jsonDir: './**/*.json'
+      jsonDir: './'
       outputPath: './'
       theme: 'bootstrap'
       reportSuiteAsScenarios: true
