@@ -11,10 +11,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/tests
-
-      - name: Report 🚀
-          uses: JamesIves/github-pages-deploy-action@releases/v3
-          with:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-            BRANCH: gh-pages
-            FOLDER: report
+      - uses: JamesIves/github-pages-deploy-action@releases/v3
+        with:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          BRANCH: gh-pages
+          FOLDER: report

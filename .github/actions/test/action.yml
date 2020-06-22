@@ -4,4 +4,3 @@ runs:
   using: 'docker'
   image: '../../../Dockerfile'
   entrypoint: 'sudo bundle install && sudo bundle exec cucumber'
-#  post-entrypoint: ''
