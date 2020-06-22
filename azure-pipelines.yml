@@ -7,7 +7,7 @@ pool:
 steps:
   - task: UseRubyVersion@0
     inputs:
-      versionSpec: '>= 2.6'
+      versionSpec: '= 2.5'
   - task: Bash@3
     inputs:
       targetType: 'inline'
