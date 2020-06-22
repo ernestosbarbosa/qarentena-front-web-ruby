@@ -15,10 +15,11 @@ steps:
         gem install bundler
         bundle install
         bundle exec cucumber
-
   - task: PublishCucumberReport@1
     inputs:
-      jsonDir: '$(System.DefaultWorkingDirectory)'
-      outputPath: '$(Sytem.DefaultWorkingDirectory)'
+      jsonDir: '*.json'
+      outputPath: 'report'
       theme: 'bootstrap'
       reportSuiteAsScenarios: true
+      name: 'QArentena'
+      title: 'QArentena'
