@@ -1,10 +1,16 @@
+resources:
+  containers:
+  - container: qarentena
+    image: ernestosbarbosa/ruby-chromedriver:latest
+    options: --user 0:0
+
 trigger:
   - qarentena-azure-pipelines
 
 pool:
   vmImage: 'ubuntu-latest'
 
-container: ernestosbarbosa/ruby-chromedriver:latest
+container: qarentena
 
 steps:
   - task: Bash@3
