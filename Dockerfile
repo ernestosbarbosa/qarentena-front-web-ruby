@@ -8,6 +8,8 @@ RUN apt-get update && apt-get install -y software-properties-common && apt-get i
 
 COPY . .
 
+COPY ./entrypoint.sh /entrypoint.sh
+
 RUN chmod +x /entrypoint.sh
 
 RUN gem install bundler
